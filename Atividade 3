@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
+    
+    double massaInicial;
+    
+    while (true){
+    System.out.println("Digite a massa inicial do material 'ou -1 para sair'");
+    massaInicial = entrada.nextDouble();
+      
+    if(massaInicial == -1){
+      break;
+    }
+    if (massaInicial <= 0){
+      System.out.println("A massa deve ser maior que zero!! Por favor, tente novamente!");
+      continue;
+    }
+      int tempo = tempoParaPerderMassa(massaInicial);
+      System.out.println(" Tempo necessário para que a massa se torne menor que 0,10 grama: " + tempo + "segundos"); 
+      
+    }
+    
+      
+  }
+  public static int tempoParaPerderMassa(double massaInicial){
+    int tempo = 0;
+    
+    while (massaInicial >= 0.10){
+      massaInicial *= 0.75; 
+      tempo +=30;
+    }
+    return tempo;
+  }
+}
