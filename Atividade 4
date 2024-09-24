@@ -18,9 +18,9 @@ class Main {
     } 
       
     if (numero % 2 == 0){
-      somaPares += numero;
+      somaPares = somaPares + numero;
     } else {
-      produtoImpares *= numero;
+      produtoImpares = produtoImpares * numero;
       temImpar = true;
     }
   }
@@ -33,3 +33,6 @@ class Main {
     
   }
 }
+
+      
+    
