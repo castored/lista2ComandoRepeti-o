@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
+    
+    int numero;
+    int produtoImpares = 1;
+    int somaPares = 0;
+    boolean temImpar = false;
+    
+    while (true){
+      System.out.println("Digite um número inteiro POSITIVO ou um número NEGATIVO para ENCERRAR: ");
+      numero = entrada.nextInt();
+      
+    if (numero < 0){
+        break;
+    } 
+      
+    if (numero % 2 == 0){
+      somaPares += numero;
+    } else {
+      produtoImpares *= numero;
+      temImpar = true;
+    }
+  }
+   if(temImpar) {
+     System.out.println("Produto dos números ímpares: " + produtoImpares); 
+   }else{
+     System.out.println("Nenhum número ímpar foi inserido. ");
+   } 
+    System.out.println("Soma dos números pares: " + somaPares);
+    
+  }
+}
