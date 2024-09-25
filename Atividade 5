@@ -1,0 +1,60 @@
+ import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
+    
+    int qtdPessoas = 10;
+    int qtdPessoasMaior50Anos = 0;
+    double mediaIdadeEntre10e20Anos = 0;
+    int qtdPessoasEntre10e20anos = 0;
+    double porcentagemPessoasPesoMenor40 = 0;
+    double mediaAlturaEntre10e20anos;
+    int qtdPessoasPesoMenor40 = 0;
+    int idade; 
+    double peso;
+    double altura;
+    
+    for (int i = 0; i < qtdPessoas; i++) {
+      System.out.println("Informe a idade: ");
+      idade = entrada.nextInt();
+      System.out.println("\nIndorme a altura: ");
+      altura = entrada.nextDouble();
+      System.out.println("\nInforme o peso ");
+      peso = entrada.nextDouble();
+      
+      if (idade >= 50){
+        qtdPessoasMaior50Anos++;
+      }else if(idade > 10 || idade < 20) {
+        mediaIdadeEntre10e20Anos = mediaIdadeEntre10e20Anos + altura;
+        qtdPessoasEntre10e20anos++;
+      }
+      
+      if (peso < 40){
+        qtdPessoasPesoMenor40++;
+      }
+    }
+    System.out.println("\n\n");
+    System.out.println("Quantidades de pessoas com idade" + "superior a 50 anos " + qtdPessoasMaior50Anos);
+    
+    System.out.println("\n\n");
+    if(qtdPessoasEntre10e20anos > 0) {
+      mediaAlturaEntre10e20anos = mediaAlturaEntre10e20anos / qtdPessoasEntre10e20anos;
+      System.out.printf("Média de altura das pessoas entre 10 e 20 anos: %.2f\n", mediaAlturaEntre10e20anos);
+      
+    }else{
+      System.out.println("Não existe pessoas com idade entre 10 e 20 anos. ");
+    }
+    System.out.println();
+    
+    porcentagemPessoasPesoMenor40 = (double) qtdPessoasPesoMenor40 / qtdPessoas;
+    
+    System.out.println();
+    System.out.println();
+    System.out.println("Porcentagem de pessoas com peso menor do que 40 %.2f%%\n", porcentagemPessoasPesoMenor40* 100);
+    
+  }
+  } 
+  }
+
+}
