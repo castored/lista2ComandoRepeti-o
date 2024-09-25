@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+        int colunas;
+        int opcao;
+
+        do {
+            System.out.println("Escolha uma forma geométrica:");
+            System.out.println("1. Retângulo");
+            System.out.println("2. Diagonal Superior Esquerda");
+            System.out.println("3. Diagonal Superior Direita");
+            System.out.println("4. Diagonal Inferior Esquerda");
+            System.out.println("5. Diagonal Inferior Direita");
+            System.out.println("0. Sair");
+
+            opcao = scanner.nextInt();
+
+            if (opcao != 0) {
+                System.out.print("Informe a quantidade de colunas: ");
+                colunas = scanner.nextInt();
+
+                switch (opcao) {
+                    case 1:
+                        retangulo(colunas);
+                        break;
+                    case 2:
+                        diagonalSuperiorEsquerda(colunas);
+                        break;
+                    case 3:
+                        diagonalSuperiorDireita(colunas);
+                        break;
+                    case 4:
+                        diagonalInferiorEsquerda(colunas);
+                        break;
+                    case 5:
+                        diagonalInferiorDireita(colunas);
+                        break;
+                    default:
+                        System.out.println("Opção inválida!");
+                }
+            }
+        } while (opcao != 0);
+
+        System.out.println("Programa encerrado.");
+        scanner.close();
+    }
+
+    public static void retangulo(int colunas) {
+        for (int i = 1; i <= colunas; i++) {
+            for (int j = 1; j <= colunas; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void diagonalSuperiorEsquerda(int colunas) {
+        for (int i = 1; i <= colunas; i++) {
+            for (int j = 1; j <= colunas - i + 1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void diagonalSuperiorDireita(int colunas) {
+        for (int i = 1; i <= colunas; i++) {
+            for (int j = 1; j < i; j++) {
+                System.out.print("  "); // Espaço em branco
+            }
+            for (int j = i; j <= colunas; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void diagonalInferiorEsquerda(int colunas) {
+        for (int i = 1; i <= colunas; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void diagonalInferiorDireita(int colunas) {
+        for (int i = 1; i <= colunas; i++) {
+            for (int j = 1; j <= colunas - i; j++) {
+                System.out.print("  "); // Espaço em branco
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
